@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "visionguard-ai"
+version = "0.1.0"
+description = "Unsupervised visual anomaly detection with localized heatmaps."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "AI Engineer Portfolio" }]
+dependencies = [
+  "fastapi>=0.115,<1.0",
+  "joblib>=1.4,<2.0",
+  "numpy>=2.0,<3.0",
+  "pandas>=2.2,<3.0",
+  "pillow>=11.0,<13.0",
+  "pydantic>=2.10,<3.0",
+  "python-multipart>=0.0.20,<1.0",
+  "scikit-learn>=1.6,<2.0",
+  "uvicorn[standard]>=0.34,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1.0",
+  "mypy>=1.15,<2.0",
+  "pandas-stubs>=2.2,<3.0",
+  "pytest>=8.3,<9.0",
+  "pytest-cov>=6.0,<7.0",
+  "ruff>=0.11,<1.0",
+]
+
+[project.scripts]
+visionguard = "visionguard_ai.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/visionguard_ai"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=visionguard_ai --cov-report=term-missing --cov-fail-under=85"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["visionguard_ai"]
+
+[[tool.mypy.overrides]]
+module = ["joblib", "sklearn.*"]
+ignore_missing_imports = true
+

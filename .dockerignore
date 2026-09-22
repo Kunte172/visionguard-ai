@@ -1,0 +1,9 @@
+.git
+.venv
+node_modules
+apps/web/node_modules
+apps/web/dist
+htmlcov
+dist
+__pycache__
+
