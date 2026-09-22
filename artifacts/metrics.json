@@ -1,0 +1,18 @@
+{
+  "image": {
+    "auroc": 1.0,
+    "average_precision": 0.9999999999999999,
+    "accuracy_at_threshold": 0.9583333333333334,
+    "threshold": 1.64427290558815
+  },
+  "pixel": {
+    "auroc": 0.983235817694619
+  },
+  "dataset": {
+    "rows": 112,
+    "train_normal": 48,
+    "validation_normal": 16,
+    "test_rows": 48,
+    "synthetic": true
+  }
+}
