@@ -16,7 +16,7 @@ apps/web/vite.config.js
 apps/web/vite.config.d.ts
 artifacts/*.joblib
 artifacts/*.csv
+artifacts/*.png
 !artifacts/.gitkeep
 .env
 .DS_Store
-
